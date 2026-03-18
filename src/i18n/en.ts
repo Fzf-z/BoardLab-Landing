@@ -138,6 +138,9 @@ export const en = {
   footer: {
     copyright: '© 2026 Z Electrónica UY. All rights reserved.',
     support: 'Support',
+    terms: 'Terms of Service',
+    privacy: 'Privacy Policy',
+    refund: 'Refund Policy',
   },
 
   seo: {

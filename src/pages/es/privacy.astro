@@ -1,0 +1,74 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/Navbar.astro';
+import Footer from '../../components/Footer.astro';
+
+const lang = 'es';
+---
+
+<Layout title="Política de Privacidad — BoardLab Pro">
+  <Navbar lang={lang} />
+  <main id="main-content" class="bg-white pt-24 pb-16">
+    <article class="prose prose-slate mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+      <h1>Política de Privacidad</h1>
+      <p class="text-slate-500">Última actualización: 18 de marzo de 2026</p>
+
+      <h2>1. Introducción</h2>
+      <p>Z Electrónica UY ("la Empresa", "nosotros") opera BoardLab Pro. Esta Política de Privacidad explica cómo recopilamos, usamos y protegemos su información.</p>
+
+      <h2>2. Información que Recopilamos</h2>
+      <h3>Información de Cuenta y Pago</h3>
+      <p>Cuando adquiere una suscripción Pro, el pago es gestionado por <a href="https://www.lemonsqueezy.com" target="_blank" rel="noopener">Lemon Squeezy</a> (nuestro procesador de pagos). Recibimos su nombre, dirección de correo electrónico y estado de suscripción. No almacenamos números de tarjeta de crédito ni datos de pago — estos son gestionados íntegramente por Lemon Squeezy.</p>
+
+      <h3>Datos de la Aplicación</h3>
+      <p>Sus datos de medición de PCB, archivos boardview y archivos de proyecto se almacenan <strong>localmente en su dispositivo</strong>. No accedemos, recopilamos ni transmitimos estos datos a menos que utilice explícitamente funciones de sincronización en la nube.</p>
+
+      <h3>Diagnóstico con IA</h3>
+      <p>Cuando utiliza la función de diagnóstico con IA, los datos de medición relevantes se envían a nuestro proveedor de servicios de IA para su análisis. Estos datos se utilizan únicamente para generar su diagnóstico y no se almacenan ni se utilizan con fines de entrenamiento.</p>
+
+      <h3>Analítica de Uso</h3>
+      <p>Podemos recopilar estadísticas de uso anónimas (uso de funciones, informes de errores) para mejorar el Software. Estos datos no incluyen información personal ni datos de proyectos.</p>
+
+      <h2>3. Cómo Usamos su Información</h2>
+      <ul>
+        <li>Para proporcionar y mantener el Software y las funciones Pro</li>
+        <li>Para procesar suscripciones y comunicarnos sobre su cuenta</li>
+        <li>Para proporcionar diagnóstico con IA cuando se solicite</li>
+        <li>Para mejorar el Software basándonos en patrones de uso anónimos</li>
+        <li>Para enviar actualizaciones importantes sobre el Software (parches de seguridad, lanzamientos importantes)</li>
+      </ul>
+
+      <h2>4. Compartición de Datos</h2>
+      <p>No vendemos su información personal. Compartimos datos únicamente con:</p>
+      <ul>
+        <li><strong>Lemon Squeezy:</strong> Procesamiento de pagos y gestión de suscripciones</li>
+        <li><strong>Proveedor de Servicios de IA:</strong> Datos de medición para diagnóstico (solo cuando usted inicia un diagnóstico)</li>
+      </ul>
+
+      <h2>5. Seguridad de Datos</h2>
+      <p>Implementamos medidas de seguridad estándar de la industria para proteger su información. Sin embargo, ningún método de almacenamiento electrónico o transmisión es 100% seguro.</p>
+
+      <h2>6. Retención de Datos</h2>
+      <p>La información de cuenta se conserva durante la duración de su suscripción más un período razonable para mantenimiento de registros. Puede solicitar la eliminación de sus datos en cualquier momento contactándonos.</p>
+
+      <h2>7. Sus Derechos</h2>
+      <p>Usted tiene derecho a:</p>
+      <ul>
+        <li>Acceder a los datos personales que tenemos sobre usted</li>
+        <li>Solicitar la corrección de datos inexactos</li>
+        <li>Solicitar la eliminación de sus datos</li>
+        <li>Optar por no recibir comunicaciones no esenciales</li>
+      </ul>
+
+      <h2>8. Privacidad de Menores</h2>
+      <p>BoardLab Pro no está destinado para el uso de menores de 13 años. No recopilamos deliberadamente información de menores.</p>
+
+      <h2>9. Cambios en esta Política</h2>
+      <p>Podemos actualizar esta Política de Privacidad periódicamente. Los cambios se publicarán en esta página con una fecha de revisión actualizada.</p>
+
+      <h2>10. Contacto</h2>
+      <p>Para consultas de privacidad o solicitudes de datos, contáctenos en <a href="mailto:zelectronicauy@gmail.com">zelectronicauy@gmail.com</a>.</p>
+    </article>
+  </main>
+  <Footer lang={lang} />
+</Layout>

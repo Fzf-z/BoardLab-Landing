@@ -138,6 +138,9 @@ export const es = {
   footer: {
     copyright: '© 2026 Z Electrónica UY. Todos los derechos reservados.',
     support: 'Soporte',
+    terms: 'Términos de Servicio',
+    privacy: 'Política de Privacidad',
+    refund: 'Política de Reembolso',
   },
 
   seo: {
