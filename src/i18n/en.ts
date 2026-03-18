@@ -44,7 +44,7 @@ export const en = {
       {
         title: 'Boardview Files',
         description:
-          'Load BRD, BVR3, ASC formats. Search nets & components, view connections',
+          'Load BRD format files. Search nets & components, view connections',
         isPro: false,
       },
       {
@@ -120,7 +120,7 @@ export const en = {
       },
       {
         question: 'What boardview formats can I load?',
-        answer: 'BRD, BVR3, ASC, GenCAD, BDV, FZ, and TVW formats.',
+        answer: 'Currently BRD format is supported, with more formats planned for future releases.',
       },
       {
         question: 'Can I cancel my Pro subscription?',

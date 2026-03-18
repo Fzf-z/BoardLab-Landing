@@ -44,7 +44,7 @@ export const es = {
       {
         title: 'Archivos Boardview',
         description:
-          'Carga formatos BRD, BVR3, ASC. Busca redes y componentes, visualiza conexiones',
+          'Carga archivos en formato BRD. Busca redes y componentes, visualiza conexiones',
         isPro: false,
       },
       {
@@ -120,7 +120,7 @@ export const es = {
       },
       {
         question: '¿Qué formatos de boardview puedo cargar?',
-        answer: 'Formatos BRD, BVR3, ASC, GenCAD, BDV, FZ y TVW.',
+        answer: 'Actualmente se soporta el formato BRD, con más formatos planificados para futuras versiones.',
       },
       {
         question: '¿Puedo cancelar mi suscripción Pro?',
