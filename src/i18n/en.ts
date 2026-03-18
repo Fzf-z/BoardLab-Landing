@@ -15,6 +15,8 @@ export const en = {
       'Map PCB measurements, connect SCPI instruments, load boardview files, and get AI-powered diagnosis — all in one desktop app.',
     ctaPrimary: '⬇ Download Free',
     ctaSecondary: 'View Pricing →',
+    tab1: 'Point Mapping',
+    tab2: 'Boardview',
   },
 
   features: {

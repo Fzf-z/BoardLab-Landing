@@ -15,6 +15,8 @@ export const es = {
       'Mapea mediciones de PCB, conecta instrumentos SCPI, carga archivos boardview, y obtén diagnóstico con IA — todo en una app de escritorio.',
     ctaPrimary: '⬇ Descargar Gratis',
     ctaSecondary: 'Ver Precios →',
+    tab1: 'Mapeo de Puntos',
+    tab2: 'Boardview',
   },
 
   features: {

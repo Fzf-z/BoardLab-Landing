@@ -60,23 +60,50 @@ const titleParts = tr.hero.title.split(highlightWord);
       </a>
     </div>
 
-    <!-- Hero image: app window mockup -->
+    <!-- Hero image: app window mockup with screenshot tabs -->
     <div class="hero-fade-in-image mt-16 sm:mt-20 mx-auto max-w-5xl" style="animation-delay: 0.8s;">
       <div class="hero-window rounded-xl border border-slate-700/50 bg-slate-800/50 shadow-2xl shadow-black/50 backdrop-blur">
-        <!-- Window title bar -->
+        <!-- Window title bar with screenshot tabs -->
         <div class="flex items-center gap-2 px-4 py-2.5">
           <span class="h-3 w-3 rounded-full bg-red-500/60" aria-hidden="true"></span>
           <span class="h-3 w-3 rounded-full bg-yellow-500/60" aria-hidden="true"></span>
           <span class="h-3 w-3 rounded-full bg-green-500/60" aria-hidden="true"></span>
+          <div class="ml-4 flex gap-1">
+            <button
+              type="button"
+              class="hero-tab active rounded-md px-3 py-1 text-xs font-medium text-slate-400 transition-colors hover:text-white"
+              data-tab="0"
+            >
+              {tr.hero.tab1}
+            </button>
+            <button
+              type="button"
+              class="hero-tab rounded-md px-3 py-1 text-xs font-medium text-slate-400 transition-colors hover:text-white"
+              data-tab="1"
+            >
+              {tr.hero.tab2}
+            </button>
+          </div>
         </div>
-        <!-- Screenshot -->
-        <img
-          src="/screenshots/main.png"
-          alt="BoardLab Pro application — PCB diagnostics interface showing measurement mapping, instrument connections, and AI diagnosis panel"
-          class="w-full rounded-b-lg"
-          loading="eager"
-          decoding="async"
-        />
+        <!-- Screenshots -->
+        <div class="relative">
+          <img
+            src="/screenshots/image1.png"
+            alt="BoardLab Pro — PCB diagnostics with dual board view and measurement points table"
+            class="hero-screenshot active w-full rounded-b-lg"
+            data-index="0"
+            loading="eager"
+            decoding="async"
+          />
+          <img
+            src="/screenshots/image2.png"
+            alt="BoardLab Pro — Boardview overlay with component mapping and diagnostics"
+            class="hero-screenshot w-full rounded-b-lg absolute inset-0 opacity-0 transition-opacity duration-500"
+            data-index="1"
+            loading="eager"
+            decoding="async"
+          />
+        </div>
       </div>
     </div>
   </div>
@@ -127,6 +154,17 @@ const titleParts = tr.hero.title.split(highlightWord);
     animation: fadeInUpLarge 0.9s ease-out forwards;
   }
 
+  /* Screenshot tab styles */
+  .hero-tab.active {
+    background: rgb(30 41 59 / 0.8);
+    color: white;
+  }
+
+  .hero-screenshot.active {
+    opacity: 1;
+    position: relative;
+  }
+
   /* Desktop: slight perspective tilt on window mockup */
   @media (min-width: 768px) {
     .hero-window {
@@ -141,3 +179,25 @@ const titleParts = tr.hero.title.split(highlightWord);
     }
   }
 </style>
+
+<script>
+  const tabs = document.querySelectorAll('.hero-tab');
+  const screenshots = document.querySelectorAll('.hero-screenshot');
+
+  tabs.forEach((tab) => {
+    tab.addEventListener('click', () => {
+      const index = tab.getAttribute('data-tab');
+      tabs.forEach((t) => t.classList.remove('active'));
+      screenshots.forEach((s) => {
+        s.classList.remove('active');
+        (s as HTMLElement).style.opacity = '0';
+      });
+      tab.classList.add('active');
+      const target = document.querySelector(`.hero-screenshot[data-index="${index}"]`) as HTMLElement;
+      if (target) {
+        target.classList.add('active');
+        target.style.opacity = '1';
+      }
+    });
+  });
+</script>

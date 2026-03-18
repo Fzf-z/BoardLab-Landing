@@ -17,7 +17,7 @@ const description = descriptionProp ?? tr.seo.description;
 
 const siteUrl = 'https://board-lab.pro';
 const canonicalUrl = new URL(Astro.url.pathname, siteUrl).href;
-const ogImage = `${siteUrl}/screenshots/main.png`;
+const ogImage = `${siteUrl}/iconXL.png`;
 
 const hreflangEn = `${siteUrl}/`;
 const hreflangEs = `${siteUrl}/es/`;
@@ -46,6 +46,7 @@ const jsonLd = {
     <!-- Primary meta -->
     <title>{title}</title>
     <meta name="description" content={description} />
+    <link rel="icon" href="/icon.ico" sizes="48x48" />
     <link rel="icon" type="image/png" href="/icon.png" />
 
     <!-- Canonical & hreflang -->
