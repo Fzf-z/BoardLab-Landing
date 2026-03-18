@@ -8,8 +8,7 @@ const translations: Record<Lang, Translations> = { en, es };
 
 /**
  * Extracts the locale from a URL pathname.
- * Expects routes prefixed with /en/ or /es/ (prefixDefaultLocale: true).
- * Falls back to 'en' if no known locale prefix is found.
+ * English lives at / (no prefix), Spanish at /es/.
  */
 export function getLang(url: URL): Lang {
   const [, first] = url.pathname.split('/');
@@ -25,14 +24,14 @@ export function t(lang: Lang): Translations {
 }
 
 /**
- * Prepends the locale prefix to a path.
- * Ensures the result always starts with /<lang>/.
+ * Returns a localized path. English has no prefix, Spanish uses /es/.
  * Example: getLocalizedPath('es', '/pricing') => '/es/pricing'
- *          getLocalizedPath('en', '/')        => '/en/'
+ *          getLocalizedPath('en', '/')        => '/'
  */
 export function getLocalizedPath(lang: Lang, path: string): string {
   const clean = path.startsWith('/') ? path : `/${path}`;
-  return `/${lang}${clean}`;
+  if (lang === 'en') return clean;
+  return `/es${clean}`;
 }
 
 /**
