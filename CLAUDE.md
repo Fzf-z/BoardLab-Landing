@@ -18,15 +18,22 @@ Static landing page for **BoardLab Pro** (PCB diagnostics desktop app). Built wi
 
 ### i18n
 
-Astro's built-in i18n routing with `prefixDefaultLocale: true` — all pages live under `/en/` and `/es/`. The root `/` redirects to `/en/`.
+Astro's built-in i18n routing with `prefixDefaultLocale: false` — English is the default at `/`, Spanish lives under `/es/`.
 
-- **Translation files:** `src/i18n/en.ts` and `src/i18n/es.ts` — typed const objects with identical nested structure (`nav`, `hero`, `features`, `pricing`, `faq`, `footer`, `seo`, `notFound`).
-- **Helpers in `src/i18n/utils.ts`:** `getLang(url)` extracts locale from pathname, `t(lang)` returns the translation object, `getLocalizedPath(lang, path)` builds localized routes, `getAlternateLang(lang)` returns the opposite locale.
-- **Page pattern:** `src/pages/en/index.astro` and `src/pages/es/index.astro` are structurally identical — they set `const lang` and pass `t(lang)` to components.
+- **Translation files:** `src/i18n/en.ts` and `src/i18n/es.ts` — typed const objects with identical nested structure (`nav`, `hero`, `demo`, `features`, `pricing`, `faq`, `footer`, `seo`, `notFound`).
+- **Helpers in `src/i18n/utils.ts`:** `getLang(url)` extracts locale from pathname, `t(lang)` returns the translation object, `getLocalizedPath(lang, path)` builds localized routes (EN returns bare path, ES prepends `/es`), `getAlternateLang(lang)` returns the opposite locale.
+- **Page pattern:** `src/pages/index.astro` (EN) and `src/pages/es/index.astro` (ES) are structurally identical — they set `const lang` and pass `t(lang)` to components. Same pattern for legal pages and changelog.
 
 ### Components
 
-All in `src/components/` as `.astro` files. Each receives translations as props. Minimal inline `<script>` only in Navbar (mobile menu toggle) and Pricing (monthly/annual toggle). FAQ uses native `<details>/<summary>` with no JS.
+All in `src/components/` as `.astro` files. Each receives `lang` as a prop and calls `t(lang)` internally. Minimal inline `<script>` only in Navbar (mobile menu toggle), Pricing (monthly/annual toggle), and Hero (screenshot tab switch). FAQ uses native `<details>/<summary>` with no JS. Demo embeds a YouTube iframe.
+
+### Pages
+
+- `/` and `/es/` — Main landing (Hero → Demo → Features → Pricing → FAQ)
+- `/terms`, `/privacy`, `/refund` (+ `/es/` variants) — Legal pages using `prose` typography
+- `/changelog` (+ `/es/changelog`) — User-facing release notes
+- `/404` — Bilingual 404 page
 
 ### Layout & SEO
 
@@ -34,7 +41,7 @@ All in `src/components/` as `.astro` files. Each receives translations as props.
 
 ### Styling
 
-Tailwind v4 imported in `src/styles/global.css` with a `@theme` block defining custom OKLch color tokens (blue-600, teal-600, slate variants). All styling is utility-first — no custom CSS classes.
+Tailwind v4 imported in `src/styles/global.css` with `@tailwindcss/typography` plugin for prose pages. A `@theme` block defines custom OKLch color tokens (blue-600, teal-600, slate variants). All styling is utility-first — no custom CSS classes beyond component-scoped styles.
 
 ## Key URLs
 
@@ -44,4 +51,4 @@ Tailwind v4 imported in `src/styles/global.css` with a `@theme` block defining c
 
 ## Hosting
 
-Cloudflare Pages with custom domain. No SSR adapter — pure static output.
+Cloudflare Pages with custom domain, auto-deploy from GitHub on push to `master`. No SSR adapter — pure static output.
