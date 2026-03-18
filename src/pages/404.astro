@@ -1,0 +1,21 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getLang, t, getLocalizedPath } from '../i18n/utils';
+
+const lang = getLang(Astro.url);
+const tr = t(lang);
+---
+
+<Layout title={tr.notFound.title}>
+  <div class="flex min-h-screen flex-col items-center justify-center bg-slate-50 px-4 text-center">
+    <p class="text-8xl font-bold text-slate-200">404</p>
+    <h1 class="mt-4 text-2xl font-bold text-slate-900">{tr.notFound.title}</h1>
+    <p class="mt-2 text-slate-500">{tr.notFound.message}</p>
+    <a
+      href={getLocalizedPath(lang, '/')}
+      class="mt-8 inline-flex items-center rounded-xl bg-gradient-to-r from-blue-600 to-teal-600 px-6 py-3 text-sm font-semibold text-white transition-all hover:shadow-lg hover:shadow-blue-500/25 hover:brightness-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+    >
+      {tr.notFound.cta}
+    </a>
+  </div>
+</Layout>
