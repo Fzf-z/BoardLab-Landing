@@ -1,0 +1,119 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/Navbar.astro';
+import Footer from '../../components/Footer.astro';
+
+const lang = 'es';
+---
+
+<Layout title="Changelog — BoardLab Pro">
+  <Navbar lang={lang} />
+  <main id="main-content" class="bg-white pt-24 pb-16">
+    <article class="prose prose-slate mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+      <h1>Changelog</h1>
+      <p class="text-slate-500">Todos los cambios notables de BoardLab Pro.</p>
+
+      <h2 id="3.0.0">3.0.0 <span class="text-base font-normal text-slate-400">— 16 de marzo de 2026</span></h2>
+      <h3>Nuevas Funciones</h3>
+      <ul>
+        <li><strong>Mapeo de Pines de Componentes:</strong> Visualiza layouts de pines, mide pines individuales y recorre la secuencia automáticamente</li>
+        <li><strong>Modo Secuencia de Pines:</strong> Medición rápida pin a pin con avance automático — mide todos los pines de un componente en segundos</li>
+        <li><strong>Espejar Componentes:</strong> Espeja layouts de componentes para comparación de doble cara</li>
+        <li><strong>Puntos Virtuales:</strong> Puntos de medición autogenerados para pines, separados de los puntos de test manuales</li>
+        <li><strong>Catálogo de Componentes:</strong> Sistema de catálogo con templates reutilizables de componentes y pines</li>
+      </ul>
+      <h3>Mejoras</h3>
+      <ul>
+        <li>Vista de detalle de componentes rediseñada con mejor UX y visualización de pines</li>
+        <li>Nombres de pines y puntos de test siempre visibles sin truncamiento</li>
+        <li>Columnas de voltaje, resistencia y diodo en la pestaña de Pines</li>
+      </ul>
+
+      <h2 id="2.9.0">2.9.0 <span class="text-base font-normal text-slate-400">— 8 de marzo de 2026</span></h2>
+      <ul>
+        <li>Posicionamiento inteligente de etiquetas con optimización de ángulos y evasión de obstáculos</li>
+        <li>Corrección: el arrastre solo funciona desde los marcadores de puntos, no desde las etiquetas</li>
+      </ul>
+
+      <h2 id="2.8.0">2.8.0 <span class="text-base font-normal text-slate-400">— 7 de marzo de 2026</span></h2>
+      <h3>Nuevas Funciones</h3>
+      <ul>
+        <li><strong>Rotación de Componentes:</strong> Rota componentes 90° desde el menú contextual o con la tecla <kbd>R</kbd></li>
+        <li><strong>Líneas de Conexión:</strong> Líneas visuales entre puntos vinculados en el canvas</li>
+      </ul>
+
+      <h2 id="2.6.0">2.6.0 <span class="text-base font-normal text-slate-400">— 6 de marzo de 2026</span></h2>
+      <ul>
+        <li>Doble clic para abrir editor de componentes en modo medición</li>
+        <li>Corrección de pérdida de foco tras diálogos de confirmación</li>
+      </ul>
+
+      <h2 id="2.5.0">2.5.0 <span class="text-base font-normal text-slate-400">— 5 de marzo de 2026</span></h2>
+      <h3>Nuevas Funciones</h3>
+      <ul>
+        <li><strong>Editor de Imágenes:</strong> Ajusta brillo, contraste, recorta y edita imágenes de la placa directamente en la app</li>
+        <li>Las imágenes editadas se sincronizan a la nube automáticamente</li>
+      </ul>
+      <h3>Mejoras</h3>
+      <ul>
+        <li>Rendimiento: contextos memorizados y chunks optimizados</li>
+        <li>Notificaciones de actualización movidas a Configuración &gt; Acerca de</li>
+      </ul>
+
+      <h2 id="2.4.0">2.4.0 <span class="text-base font-normal text-slate-400">— 4 de marzo de 2026</span></h2>
+      <h3>Rendimiento</h3>
+      <ul>
+        <li>Renderizado con canvas viewport — elimina límites de memoria para placas grandes</li>
+        <li>Minimapa ahora usa canvas en vez de imágenes (~50% menos memoria GPU)</li>
+        <li>Frecuencia de sincronización Supabase reducida para conexiones más rápidas</li>
+      </ul>
+
+      <h2 id="2.3.0">2.3.0 <span class="text-base font-normal text-slate-400">— 2 de marzo de 2026</span></h2>
+      <ul>
+        <li><strong>Actualizaciones Automáticas:</strong> La app se actualiza automáticamente vía Cloudflare R2</li>
+        <li>Tamaños de fuente configurables en la vista de placa</li>
+      </ul>
+
+      <h2 id="2.2.0">2.2.0 <span class="text-base font-normal text-slate-400">— 27 de febrero de 2026</span></h2>
+      <ul>
+        <li>Controles de visualización de mediciones para canvas boardview</li>
+        <li>Versión dinámica de la app en Configuración</li>
+      </ul>
+
+      <h2 id="2.1.0">2.1.0 <span class="text-base font-normal text-slate-400">— 27 de febrero de 2026</span></h2>
+      <ul>
+        <li>Las líneas de red permanecen visibles al seleccionar componentes desde el overlay de detalle</li>
+        <li>Zoom mínimo reducido a 5% para proyectos boardview</li>
+      </ul>
+
+      <h2 id="2.0.0">2.0.0 <span class="text-base font-normal text-slate-400">— 6 de febrero de 2026</span></h2>
+      <h3>Nuevas Funciones</h3>
+      <ul>
+        <li><strong>Comparación con Placa Dorada:</strong> Vincula puntos entre placas para comparar mediciones lado a lado</li>
+        <li><strong>Sincronización Cloud:</strong> Primero offline con respaldo automático vía Supabase</li>
+        <li><strong>Sistema de Exportación:</strong> Exportación PDF e imagen con posicionamiento de etiquetas basado en física</li>
+        <li><strong>Secuenciador de Pruebas:</strong> Define rutas de test y captura mediciones rápidas en secuencia</li>
+        <li><strong>Instrumentos SCPI:</strong> Driver genérico con TCP y Serial — presets para Keysight, Rigol, Siglent, Owon, Fluke, Tektronix</li>
+      </ul>
+      <h3>Seguridad</h3>
+      <ul>
+        <li>Almacenamiento encriptado de claves API</li>
+        <li>Row Level Security en todos los datos cloud</li>
+        <li>URLs firmadas para imágenes privadas</li>
+      </ul>
+
+      <h2 id="1.0.0">1.0.0 <span class="text-base font-normal text-slate-400">— 15 de diciembre de 2025</span></h2>
+      <h3>Lanzamiento Inicial</h3>
+      <ul>
+        <li>Visor interactivo de PCB con soporte de doble cara, pan, zoom y minimapa</li>
+        <li>Puntos de medición con clic y deshacer/rehacer</li>
+        <li>Integración con instrumentos SCPI (multímetro y osciloscopio)</li>
+        <li>Diagnóstico asistido por IA vía Gemini</li>
+        <li>Almacenamiento local con SQLite</li>
+        <li>Interfaz bilingüe (Inglés / Español)</li>
+        <li>Atajos de teclado para flujo de trabajo rápido</li>
+      </ul>
+    </article>
+  </main>
+  <Footer lang={lang} />
+</Layout>

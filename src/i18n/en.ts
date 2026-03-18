@@ -8,11 +8,11 @@ export const en = {
   },
 
   hero: {
-    badge: '✨ v3.0 — Now with AI-Powered Diagnosis',
-    title: 'Intelligent Electronic Board Diagnostics',
-    titleHighlight: 'Intelligent',
+    badge: '✨ v3.0 — New UI & Improved Workflow',
+    title: 'Record, Measure & Document PCB Repairs',
+    titleHighlight: 'Document',
     subtitle:
-      'Map PCB measurements, connect SCPI instruments, load boardview files, and get AI-powered diagnosis — all in one desktop app.',
+      'Map measurement points, connect SCPI instruments, annotate repairs, and load boardview files — all in one desktop app. Plus optional AI-assisted diagnosis.',
     ctaPrimary: '⬇ Download Free',
     ctaSecondary: 'View Pricing →',
     tab1: 'Point Mapping',
@@ -21,7 +21,7 @@ export const en = {
 
   features: {
     label: 'FEATURES',
-    title: 'Everything you need for PCB diagnostics',
+    title: 'Everything you need to track PCB repairs',
     items: [
       {
         title: 'PCB Point Mapping',
@@ -36,27 +36,27 @@ export const en = {
         isPro: false,
       },
       {
-        title: 'AI Diagnosis \u1D18\u1D3F\u1D3C',
-        description:
-          'Gemini-powered anomaly detection, contextual analysis & interactive chat',
-        isPro: true,
-      },
-      {
         title: 'Boardview Files',
         description:
           'Load BRD format files. Search nets & components, view connections',
         isPro: false,
       },
       {
-        title: 'Test Sequencer \u1D18\u1D3F\u1D3C',
+        title: 'Test Sequencer',
         description:
           'Automated sequential test workflows with instrument auto-configuration',
         isPro: true,
       },
       {
-        title: 'Cloud Sync \u1D18\u1D3F\u1D3C',
+        title: 'Cloud Sync',
         description:
           'Offline-first with automatic cloud backup. Works without internet',
+        isPro: true,
+      },
+      {
+        title: 'AI Diagnosis',
+        description:
+          'Gemini-powered anomaly detection, contextual analysis & interactive chat',
         isPro: true,
       },
     ],
@@ -88,11 +88,11 @@ export const en = {
       subtitle: 'For professional technicians',
       features: [
         'Unlimited projects & points',
-        'AI-powered diagnosis',
         'Golden board comparison',
+        'Test sequencer',
         'Cloud sync & backup',
         'PDF/image export',
-        'Test sequencer',
+        'AI-assisted diagnosis',
         '2 device activations',
         'Priority support',
       ],
@@ -138,15 +138,16 @@ export const en = {
   footer: {
     copyright: '© 2026 Z Electrónica UY. All rights reserved.',
     support: 'Support',
+    changelog: 'Changelog',
     terms: 'Terms of Service',
     privacy: 'Privacy Policy',
     refund: 'Refund Policy',
   },
 
   seo: {
-    title: 'BoardLab Pro — Intelligent Electronic Board Diagnostics',
+    title: 'BoardLab Pro — Record, Measure & Document PCB Repairs',
     description:
-      'Map PCB measurements, connect SCPI instruments, load boardview files, and get AI-powered diagnosis — all in one desktop app.',
+      'Map measurement points, connect SCPI instruments, annotate repairs, and load boardview files — all in one desktop app.',
   },
 
   notFound: {

@@ -1,0 +1,119 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+
+const lang = 'en';
+---
+
+<Layout title="Changelog — BoardLab Pro">
+  <Navbar lang={lang} />
+  <main id="main-content" class="bg-white pt-24 pb-16">
+    <article class="prose prose-slate mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+      <h1>Changelog</h1>
+      <p class="text-slate-500">All notable changes to BoardLab Pro.</p>
+
+      <h2 id="3.0.0">3.0.0 <span class="text-base font-normal text-slate-400">— March 16, 2026</span></h2>
+      <h3>New Features</h3>
+      <ul>
+        <li><strong>Component Pin Mapping:</strong> View component pin layouts, measure individual pins, and sequence through them automatically</li>
+        <li><strong>Pin Sequence Mode:</strong> Rapid pin-by-pin measurement with auto-advance — measure all pins on a component in seconds</li>
+        <li><strong>Mirror Components:</strong> Mirror component layouts for dual-side board comparison</li>
+        <li><strong>Virtual Points:</strong> Auto-generated measurement points for pins, kept separate from manual test points</li>
+        <li><strong>Component Catalog:</strong> Catalog system with reusable component and pin templates</li>
+      </ul>
+      <h3>Improvements</h3>
+      <ul>
+        <li>Redesigned component detail view with better UX and pin visualization</li>
+        <li>Pin names and test points are always visible without truncation</li>
+        <li>Voltage, resistance, and diode columns in the Pins tab</li>
+      </ul>
+
+      <h2 id="2.9.0">2.9.0 <span class="text-base font-normal text-slate-400">— March 8, 2026</span></h2>
+      <ul>
+        <li>Smart label positioning with angle optimization and obstacle avoidance</li>
+        <li>Fixed: dragging only works from point markers, not labels</li>
+      </ul>
+
+      <h2 id="2.8.0">2.8.0 <span class="text-base font-normal text-slate-400">— March 7, 2026</span></h2>
+      <h3>New Features</h3>
+      <ul>
+        <li><strong>Component Rotation:</strong> Rotate components 90° via context menu or <kbd>R</kbd> key</li>
+        <li><strong>Connection Lines:</strong> Visual lines between linked points on the board canvas</li>
+      </ul>
+
+      <h2 id="2.6.0">2.6.0 <span class="text-base font-normal text-slate-400">— March 6, 2026</span></h2>
+      <ul>
+        <li>Double-click to open component editor in measure mode</li>
+        <li>Fixed focus loss after confirmation dialogs</li>
+      </ul>
+
+      <h2 id="2.5.0">2.5.0 <span class="text-base font-normal text-slate-400">— March 5, 2026</span></h2>
+      <h3>New Features</h3>
+      <ul>
+        <li><strong>Image Editor:</strong> Adjust brightness, contrast, crop, and edit board images directly in the app</li>
+        <li>Edited images sync to cloud automatically</li>
+      </ul>
+      <h3>Improvements</h3>
+      <ul>
+        <li>Performance: memoized contexts and optimized bundle chunks</li>
+        <li>Update notifications moved to Settings &gt; About tab</li>
+      </ul>
+
+      <h2 id="2.4.0">2.4.0 <span class="text-base font-normal text-slate-400">— March 4, 2026</span></h2>
+      <h3>Performance</h3>
+      <ul>
+        <li>Viewport canvas rendering — eliminates tile memory limits on large boards</li>
+        <li>Minimap now uses canvas instead of images (~50% less GPU memory)</li>
+        <li>Reduced Supabase sync frequency for faster connections</li>
+      </ul>
+
+      <h2 id="2.3.0">2.3.0 <span class="text-base font-normal text-slate-400">— March 2, 2026</span></h2>
+      <ul>
+        <li><strong>Auto-Updates:</strong> The app now updates itself automatically via Cloudflare R2</li>
+        <li>Configurable board display font sizes</li>
+      </ul>
+
+      <h2 id="2.2.0">2.2.0 <span class="text-base font-normal text-slate-400">— February 27, 2026</span></h2>
+      <ul>
+        <li>Measurement display controls for boardview canvas</li>
+        <li>Dynamic app version display in Settings</li>
+      </ul>
+
+      <h2 id="2.1.0">2.1.0 <span class="text-base font-normal text-slate-400">— February 27, 2026</span></h2>
+      <ul>
+        <li>Net lines stay visible when selecting parts from detail overlay</li>
+        <li>Lower minimum zoom (5%) for boardview projects</li>
+      </ul>
+
+      <h2 id="2.0.0">2.0.0 <span class="text-base font-normal text-slate-400">— February 6, 2026</span></h2>
+      <h3>New Features</h3>
+      <ul>
+        <li><strong>Golden Board Comparison:</strong> Link points across boards for side-by-side measurement comparison</li>
+        <li><strong>Cloud Sync:</strong> Offline-first with automatic cloud backup via Supabase</li>
+        <li><strong>Export System:</strong> PDF and image export with physics-based label positioning</li>
+        <li><strong>Test Sequencer:</strong> Define test paths and rapid-capture measurements in sequence</li>
+        <li><strong>SCPI Instruments:</strong> Generic driver supporting TCP and Serial connections — presets for Keysight, Rigol, Siglent, Owon, Fluke, Tektronix</li>
+      </ul>
+      <h3>Security</h3>
+      <ul>
+        <li>Encrypted API key storage</li>
+        <li>Row Level Security on all cloud data</li>
+        <li>Signed URLs for private images</li>
+      </ul>
+
+      <h2 id="1.0.0">1.0.0 <span class="text-base font-normal text-slate-400">— December 15, 2025</span></h2>
+      <h3>Initial Release</h3>
+      <ul>
+        <li>Interactive PCB viewer with dual-side support, pan, zoom, and minimap</li>
+        <li>Click-to-add measurement points with undo/redo</li>
+        <li>SCPI instrument integration (multimeter and oscilloscope)</li>
+        <li>AI-assisted diagnosis via Gemini</li>
+        <li>Local-first SQLite storage</li>
+        <li>Bilingual interface (English / Spanish)</li>
+        <li>Keyboard shortcuts for fast workflow</li>
+      </ul>
+    </article>
+  </main>
+  <Footer lang={lang} />
+</Layout>

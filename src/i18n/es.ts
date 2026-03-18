@@ -8,11 +8,11 @@ export const es = {
   },
 
   hero: {
-    badge: '✨ v3.0 — Ahora con Diagnóstico con IA',
-    title: 'Diagnóstico Inteligente de Placas Electrónicas',
-    titleHighlight: 'Inteligente',
+    badge: '✨ v3.0 — Nueva UI y Flujo Mejorado',
+    title: 'Registra, Mide y Documenta Reparaciones de PCB',
+    titleHighlight: 'Documenta',
     subtitle:
-      'Mapea mediciones de PCB, conecta instrumentos SCPI, carga archivos boardview, y obtén diagnóstico con IA — todo en una app de escritorio.',
+      'Mapea puntos de medición, conecta instrumentos SCPI, anota reparaciones y carga archivos boardview — todo en una app de escritorio. Más diagnóstico asistido por IA opcional.',
     ctaPrimary: '⬇ Descargar Gratis',
     ctaSecondary: 'Ver Precios →',
     tab1: 'Mapeo de Puntos',
@@ -21,7 +21,7 @@ export const es = {
 
   features: {
     label: 'CARACTERÍSTICAS',
-    title: 'Todo lo que necesitas para diagnosticar PCBs',
+    title: 'Todo lo que necesitas para registrar reparaciones de PCB',
     items: [
       {
         title: 'Mapeo de Puntos PCB',
@@ -36,27 +36,27 @@ export const es = {
         isPro: false,
       },
       {
-        title: 'Diagnóstico con IA \u1D18\u1D3F\u1D3C',
-        description:
-          'Detección de anomalías con Gemini, análisis contextual y chat interactivo',
-        isPro: true,
-      },
-      {
         title: 'Archivos Boardview',
         description:
           'Carga archivos en formato BRD. Busca redes y componentes, visualiza conexiones',
         isPro: false,
       },
       {
-        title: 'Secuenciador de Pruebas \u1D18\u1D3F\u1D3C',
+        title: 'Secuenciador de Pruebas',
         description:
           'Flujos de prueba secuenciales automatizados con autoconfiguración de instrumentos',
         isPro: true,
       },
       {
-        title: 'Sincronización Cloud \u1D18\u1D3F\u1D3C',
+        title: 'Sincronización Cloud',
         description:
           'Primero offline con respaldo automático en la nube. Funciona sin internet',
+        isPro: true,
+      },
+      {
+        title: 'Diagnóstico con IA',
+        description:
+          'Detección de anomalías con Gemini, análisis contextual y chat interactivo',
         isPro: true,
       },
     ],
@@ -88,11 +88,11 @@ export const es = {
       subtitle: 'Para técnicos profesionales',
       features: [
         'Proyectos y puntos ilimitados',
-        'Diagnóstico con IA',
         'Comparación con placa dorada',
+        'Secuenciador de pruebas',
         'Sincronización y respaldo cloud',
         'Exportación PDF/imagen',
-        'Secuenciador de pruebas',
+        'Diagnóstico asistido por IA',
         '2 activaciones de dispositivo',
         'Soporte prioritario',
       ],
@@ -138,15 +138,16 @@ export const es = {
   footer: {
     copyright: '© 2026 Z Electrónica UY. Todos los derechos reservados.',
     support: 'Soporte',
+    changelog: 'Changelog',
     terms: 'Términos de Servicio',
     privacy: 'Política de Privacidad',
     refund: 'Política de Reembolso',
   },
 
   seo: {
-    title: 'BoardLab Pro — Diagnóstico Inteligente de Placas Electrónicas',
+    title: 'BoardLab Pro — Registra, Mide y Documenta Reparaciones de PCB',
     description:
-      'Mapea mediciones de PCB, conecta instrumentos SCPI, carga archivos boardview, y obtén diagnóstico con IA — todo en una app de escritorio.',
+      'Mapea puntos de medición, conecta instrumentos SCPI, anota reparaciones y carga archivos boardview — todo en una app de escritorio.',
   },
 
   notFound: {

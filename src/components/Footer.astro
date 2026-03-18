@@ -14,6 +14,9 @@ const tr = t(lang);
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <!-- Legal links -->
     <div class="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm">
+      <a href={getLocalizedPath(lang, '/changelog')} class="text-slate-400 hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:rounded">
+        {tr.footer.changelog}
+      </a>
       <a href={getLocalizedPath(lang, '/terms')} class="text-slate-400 hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:rounded">
         {tr.footer.terms}
       </a>
