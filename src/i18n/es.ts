@@ -19,6 +19,11 @@ export const es = {
     tab2: 'Boardview',
   },
 
+  demo: {
+    label: 'DEMO',
+    title: 'Mira BoardLab Pro en acción',
+  },
+
   features: {
     label: 'CARACTERÍSTICAS',
     title: 'Todo lo que necesitas para registrar reparaciones de PCB',

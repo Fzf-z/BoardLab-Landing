@@ -19,6 +19,11 @@ export const en = {
     tab2: 'Boardview',
   },
 
+  demo: {
+    label: 'DEMO',
+    title: 'See BoardLab Pro in action',
+  },
+
   features: {
     label: 'FEATURES',
     title: 'Everything you need to track PCB repairs',
