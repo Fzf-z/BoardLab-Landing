@@ -1,0 +1,179 @@
+---
+import type { Lang } from '../i18n/utils';
+import { t, getLocalizedPath, getAlternateLang } from '../i18n/utils';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const tr = t(lang);
+const altLang = getAlternateLang(lang);
+const altHref = getLocalizedPath(altLang, '/');
+const downloadUrl = 'https://pub-a5c39dc41b1845aab82e6839d91eff7d.r2.dev/BoardLab%20Pro%20Setup%203.0.0.exe';
+---
+
+<nav
+  id="navbar"
+  class="fixed top-0 left-0 right-0 z-50 h-16 bg-slate-900/95 backdrop-blur-xl transition-[border-color] duration-300 border-b border-transparent"
+>
+  <div class="mx-auto flex h-full max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+    <!-- Logo -->
+    <a
+      href={getLocalizedPath(lang, '/')}
+      class="flex items-center gap-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded-md"
+    >
+      <div class="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-blue-600 to-teal-600 p-[1px]">
+        <div class="flex h-full w-full items-center justify-center rounded-[7px] bg-slate-900">
+          <span class="text-sm font-bold bg-gradient-to-r from-blue-400 to-teal-400 bg-clip-text text-transparent">B</span>
+        </div>
+      </div>
+      <span class="text-base font-semibold text-white">BoardLab Pro</span>
+    </a>
+
+    <!-- Desktop nav links (hidden on mobile) -->
+    <div class="hidden md:flex items-center gap-1">
+      <a
+        href="#features"
+        class="px-3 py-2 text-sm text-slate-400 transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded-md"
+      >
+        {tr.nav.features}
+      </a>
+      <a
+        href="#pricing"
+        class="px-3 py-2 text-sm text-slate-400 transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded-md"
+      >
+        {tr.nav.pricing}
+      </a>
+      <a
+        href="#faq"
+        class="px-3 py-2 text-sm text-slate-400 transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded-md"
+      >
+        {tr.nav.faq}
+      </a>
+    </div>
+
+    <!-- Desktop right actions (hidden on mobile) -->
+    <div class="hidden md:flex items-center gap-3">
+      <a
+        href={altHref}
+        class="rounded-lg border border-slate-500 px-3 py-1.5 text-sm text-slate-400 transition-colors hover:border-slate-400 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+      >
+        {tr.nav.switchLang}
+      </a>
+      <a
+        href={downloadUrl}
+        class="rounded-lg bg-gradient-to-r from-blue-600 to-teal-600 px-5 py-2 text-sm font-semibold text-white transition-all hover:scale-105 hover:brightness-110 hover:shadow-lg hover:shadow-blue-500/25 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900"
+      >
+        {tr.nav.download}
+      </a>
+    </div>
+
+    <!-- Hamburger button (visible on mobile only) -->
+    <button
+      id="menu-toggle"
+      type="button"
+      class="flex md:hidden items-center justify-center w-10 h-10 rounded-md text-slate-400 hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+      aria-expanded="false"
+      aria-controls="mobile-menu"
+      aria-label="Toggle navigation menu"
+    >
+      <svg class="hamburger-icon w-6 h-6" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+      </svg>
+      <svg class="close-icon hidden w-6 h-6" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+  </div>
+
+  <!-- Mobile menu -->
+  <div
+    id="mobile-menu"
+    class="mobile-menu md:hidden overflow-hidden max-h-0 transition-[max-height] duration-300 ease-in-out bg-slate-900/98 border-t border-slate-800/0"
+  >
+    <div class="px-4 pb-6 pt-2 flex flex-col gap-1">
+      <a
+        href="#features"
+        class="mobile-link rounded-lg px-3 py-3 text-base text-slate-400 transition-colors hover:text-white hover:bg-slate-800/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+      >
+        {tr.nav.features}
+      </a>
+      <a
+        href="#pricing"
+        class="mobile-link rounded-lg px-3 py-3 text-base text-slate-400 transition-colors hover:text-white hover:bg-slate-800/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+      >
+        {tr.nav.pricing}
+      </a>
+      <a
+        href="#faq"
+        class="mobile-link rounded-lg px-3 py-3 text-base text-slate-400 transition-colors hover:text-white hover:bg-slate-800/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+      >
+        {tr.nav.faq}
+      </a>
+
+      <hr class="my-2 border-slate-800" />
+
+      <div class="flex items-center gap-3 px-3 pt-1">
+        <a
+          href={altHref}
+          class="rounded-lg border border-slate-500 px-4 py-2.5 text-sm text-slate-400 transition-colors hover:border-slate-400 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+        >
+          {tr.nav.switchLang}
+        </a>
+        <a
+          href={downloadUrl}
+          class="flex-1 rounded-lg bg-gradient-to-r from-blue-600 to-teal-600 px-5 py-2.5 text-center text-sm font-semibold text-white transition-all hover:brightness-110 hover:shadow-lg hover:shadow-blue-500/25 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900"
+        >
+          {tr.nav.download}
+        </a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<style>
+  /* Scroll state: border appears when scrolled */
+  #navbar.scrolled {
+    border-color: rgb(30 41 59 / 0.8); /* slate-800/80 */
+  }
+
+  /* Mobile menu open state */
+  #navbar.menu-open #mobile-menu {
+    max-height: 24rem;
+    border-top-color: rgb(30 41 59);
+  }
+
+  /* Toggle hamburger/close icon visibility */
+  #navbar.menu-open .hamburger-icon {
+    display: none;
+  }
+  #navbar.menu-open .close-icon {
+    display: block;
+  }
+</style>
+
+<script>
+  // Scroll detection — border on scroll
+  const nav = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    nav?.classList.toggle('scrolled', window.scrollY > 10);
+  });
+
+  // Mobile menu toggle
+  const toggle = document.getElementById('menu-toggle');
+  const mobileLinks = document.querySelectorAll('#mobile-menu .mobile-link');
+
+  toggle?.addEventListener('click', () => {
+    const isOpen = nav?.classList.toggle('menu-open');
+    toggle.setAttribute('aria-expanded', String(!!isOpen));
+  });
+
+  // Close menu when a mobile link is clicked
+  mobileLinks.forEach((link) => {
+    link.addEventListener('click', () => {
+      nav?.classList.remove('menu-open');
+      toggle?.setAttribute('aria-expanded', 'false');
+    });
+  });
+</script>

@@ -1,0 +1,79 @@
+---
+import type { Lang } from '../i18n/utils';
+import { t } from '../i18n/utils';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const tr = t(lang);
+
+const icons = [
+  // 0 — MapPin
+  `<path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/>`,
+  // 1 — Zap
+  `<path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/>`,
+  // 2 — Sparkles
+  `<path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/><path d="M20 3v4"/><path d="M22 5h-4"/>`,
+  // 3 — Search
+  `<circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/>`,
+  // 4 — ListChecks
+  `<path d="m3 17 2 2 4-4"/><path d="m3 7 2 2 4-4"/><path d="M13 6h8"/><path d="M13 12h8"/><path d="M13 18h8"/>`,
+  // 5 — Cloud
+  `<path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/>`,
+];
+---
+
+<section id="features" class="bg-slate-50 py-20 sm:py-28">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Section label -->
+    <p class="text-sm font-semibold tracking-widest text-blue-600 uppercase">
+      {tr.features.label}
+    </p>
+
+    <!-- Section title -->
+    <h2 class="mt-2 text-3xl font-bold text-slate-900 sm:text-4xl">
+      {tr.features.title}
+    </h2>
+
+    <!-- Feature cards grid -->
+    <div class="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+      {tr.features.items.map((item, index) => (
+        <div class="group rounded-2xl bg-white p-8 shadow-sm border border-slate-200/60 transition-all hover:shadow-md hover:border-slate-300 hover:-translate-y-0.5">
+          <!-- Icon -->
+          <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-blue-50 to-teal-50 text-blue-600">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+              set:html={icons[index]}
+            />
+          </div>
+
+          <!-- Title row -->
+          <div class="mt-4 flex items-center gap-2">
+            <h3 class="text-lg font-semibold text-slate-900">{item.title}</h3>
+            {item.isPro && (
+              <span class="text-[10px] font-bold tracking-wider text-blue-600 bg-blue-50 rounded-full px-2 py-0.5 uppercase">
+                PRO
+              </span>
+            )}
+          </div>
+
+          <!-- Description -->
+          <p class="mt-2 text-sm leading-relaxed text-slate-500">
+            {item.description}
+          </p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

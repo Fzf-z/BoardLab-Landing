@@ -1,0 +1,172 @@
+---
+import type { Lang } from '../i18n/utils';
+import { t } from '../i18n/utils';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const tr = t(lang);
+const pricing = tr.pricing;
+
+const downloadUrl =
+  'https://pub-a5c39dc41b1845aab82e6839d91eff7d.r2.dev/BoardLab%20Pro%20Setup%203.0.0.exe';
+---
+
+<section id="pricing" class="bg-white py-20 sm:py-28">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <!-- Section label -->
+    <p class="text-sm font-semibold tracking-widest text-blue-600 uppercase">
+      {pricing.label}
+    </p>
+
+    <!-- Section title -->
+    <h2 class="mt-2 text-3xl font-bold text-slate-900 sm:text-4xl">
+      {pricing.title}
+    </h2>
+
+    <!-- Monthly / Annual toggle -->
+    <div class="mt-8">
+      <div class="inline-flex items-center rounded-full bg-slate-100 p-1">
+        <button
+          id="toggle-monthly"
+          class="rounded-full px-5 py-2 text-sm font-medium transition-all bg-white text-slate-900 shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+        >
+          {pricing.monthly}
+        </button>
+        <button
+          id="toggle-annual"
+          class="rounded-full px-5 py-2 text-sm font-medium transition-all text-slate-500 hover:text-slate-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+        >
+          {pricing.annual}
+        </button>
+      </div>
+    </div>
+
+    <!-- Cards -->
+    <div class="mt-12 grid gap-8 sm:grid-cols-2 max-w-3xl mx-auto">
+
+      <!-- Free Card -->
+      <div class="rounded-2xl border border-slate-200 bg-white p-8 text-left">
+        <p class="text-lg font-semibold text-slate-900">{pricing.free.name}</p>
+
+        <p class="mt-4 text-5xl font-bold text-slate-900">{pricing.free.price}</p>
+        <p class="mt-2 text-sm text-slate-500">{pricing.free.subtitle}</p>
+        <p class="mt-1 text-xs text-slate-400">{pricing.free.limits}</p>
+
+        <!-- Features -->
+        <ul class="mt-8 space-y-3">
+          {pricing.free.features.map((feature) => (
+            <li class="flex items-center gap-3">
+              <svg
+                class="h-4 w-4 shrink-0 text-slate-400"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                aria-hidden="true"
+              >
+                <path d="M20 6 9 17l-5-5"/>
+              </svg>
+              <span class="text-sm text-slate-600">{feature}</span>
+            </li>
+          ))}
+        </ul>
+
+        <!-- CTA -->
+        <a
+          href={downloadUrl}
+          class="mt-8 block w-full rounded-xl border border-slate-300 py-3 text-center text-sm font-semibold text-slate-700 transition-all hover:border-slate-400 hover:text-slate-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+        >
+          {pricing.free.cta}
+        </a>
+      </div>
+
+      <!-- Pro Card -->
+      <div class="relative rounded-2xl border-2 border-blue-600 bg-gradient-to-b from-blue-50/50 to-white p-8 text-left">
+        <!-- POPULAR badge -->
+        <span class="absolute -top-3.5 right-6 rounded-full bg-gradient-to-r from-blue-600 to-teal-600 px-4 py-1 text-xs font-bold tracking-wider text-white uppercase">
+          {pricing.pro.badge}
+        </span>
+
+        <p class="text-lg font-semibold text-slate-900">{pricing.pro.name}</p>
+
+        <!-- Price area -->
+        <div class="mt-4">
+          <div class="flex items-end gap-1">
+            <span id="price-monthly" class="text-5xl font-bold text-slate-900">$15</span>
+            <span id="price-annual" class="hidden text-5xl font-bold text-slate-900">$13.75</span>
+            <span class="text-lg text-slate-500 mb-1">{lang === 'es' ? '/mes' : '/mo'}</span>
+          </div>
+          <p id="annual-note" class="hidden mt-1 text-xs text-blue-600">
+            {pricing.pro.annualNote}
+          </p>
+        </div>
+
+        <p class="mt-2 text-sm text-slate-500">{pricing.pro.subtitle}</p>
+
+        <!-- Features -->
+        <ul class="mt-8 space-y-3">
+          {pricing.pro.features.map((feature) => (
+            <li class="flex items-center gap-3">
+              <svg
+                class="h-4 w-4 shrink-0 text-blue-600"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                aria-hidden="true"
+              >
+                <path d="M20 6 9 17l-5-5"/>
+              </svg>
+              <span class="text-sm text-slate-600">{feature}</span>
+            </li>
+          ))}
+        </ul>
+
+        <!-- CTA -->
+        <a
+          href="#"
+          data-checkout-monthly=""
+          data-checkout-annual=""
+          class="mt-8 block w-full rounded-xl bg-gradient-to-r from-blue-600 to-teal-600 py-3 text-center text-sm font-semibold text-white transition-all hover:shadow-lg hover:shadow-blue-500/25 hover:brightness-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+        >
+          {pricing.pro.cta}
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<script>
+  const monthlyBtn = document.getElementById('toggle-monthly');
+  const annualBtn = document.getElementById('toggle-annual');
+  const priceMonthly = document.getElementById('price-monthly');
+  const priceAnnual = document.getElementById('price-annual');
+  const annualNote = document.getElementById('annual-note');
+
+  function showMonthly() {
+    monthlyBtn?.classList.add('bg-white', 'text-slate-900', 'shadow-sm');
+    monthlyBtn?.classList.remove('text-slate-500');
+    annualBtn?.classList.remove('bg-white', 'text-slate-900', 'shadow-sm');
+    annualBtn?.classList.add('text-slate-500');
+    priceMonthly?.classList.remove('hidden');
+    priceAnnual?.classList.add('hidden');
+    annualNote?.classList.add('hidden');
+  }
+
+  function showAnnual() {
+    annualBtn?.classList.add('bg-white', 'text-slate-900', 'shadow-sm');
+    annualBtn?.classList.remove('text-slate-500');
+    monthlyBtn?.classList.remove('bg-white', 'text-slate-900', 'shadow-sm');
+    monthlyBtn?.classList.add('text-slate-500');
+    priceAnnual?.classList.remove('hidden');
+    priceMonthly?.classList.add('hidden');
+    annualNote?.classList.remove('hidden');
+  }
+
+  monthlyBtn?.addEventListener('click', showMonthly);
+  annualBtn?.addEventListener('click', showAnnual);
+</script>

@@ -1,0 +1,50 @@
+---
+import type { Lang } from '../i18n/utils';
+import { t } from '../i18n/utils';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const tr = t(lang);
+---
+
+<section id="faq" class="bg-slate-50 py-20 sm:py-28">
+  <div class="max-w-2xl mx-auto px-4 sm:px-6">
+    <!-- Section title -->
+    <h2 class="text-3xl font-bold text-slate-900 text-center sm:text-4xl">
+      {tr.faq.title}
+    </h2>
+
+    <!-- Accordion items -->
+    <div class="mt-12 space-y-4">
+      {tr.faq.items.map((item) => (
+        <details class="group rounded-2xl border border-slate-200 bg-white transition-all open:shadow-sm">
+          <summary class="flex cursor-pointer items-center justify-between px-6 py-5 text-base font-semibold text-slate-900 marker:[content:''] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:rounded-2xl">
+            <span>{item.question}</span>
+            <!-- Chevron icon — rotates 180deg when open -->
+            <svg
+              class="h-5 w-5 shrink-0 text-slate-400 transition-transform group-open:rotate-180"
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path d="m6 9 6 6 6-6"/>
+            </svg>
+          </summary>
+          <div class="px-6 pb-5 text-sm leading-relaxed text-slate-500">
+            {item.answer}
+          </div>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>

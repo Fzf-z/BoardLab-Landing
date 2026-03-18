@@ -1,0 +1,31 @@
+---
+import type { Lang } from '../i18n/utils';
+import { t } from '../i18n/utils';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const tr = t(lang);
+---
+
+<footer class="bg-slate-900 py-8">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+      <!-- Copyright -->
+      <p class="text-sm text-slate-400">{tr.footer.copyright}</p>
+
+      <!-- Right side links -->
+      <div class="flex items-center gap-4 text-sm">
+        <a
+          href="mailto:zelectronicauy@gmail.com"
+          class="text-slate-400 hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:rounded"
+        >
+          {tr.footer.support}
+        </a>
+        <span class="text-slate-500">zelectronicauy@gmail.com</span>
+      </div>
+    </div>
+  </div>
+</footer>
