@@ -1,0 +1,27 @@
+@import "tailwindcss";
+
+@theme {
+  /* Primary gradient endpoints */
+  --color-primary-600: oklch(0.546 0.245 262.881);   /* blue-600 */
+  --color-teal-600: oklch(0.6 0.178 184.704);         /* teal-600 */
+  --color-blue-400: oklch(0.707 0.165 254.624);       /* blue-400 */
+  --color-teal-400: oklch(0.715 0.143 184.714);       /* teal-400 */
+
+  /* Dark backgrounds */
+  --color-dark-900: oklch(0.208 0.042 265.755);       /* slate-900 */
+  --color-dark-800: oklch(0.279 0.041 260.031);       /* slate-800 */
+  --color-dark-700: oklch(0.372 0.044 257.287);       /* slate-700 */
+
+  /* Light backgrounds */
+  --color-light-50: oklch(0.984 0.003 247.858);       /* slate-50 */
+
+  /* Text colors */
+  --color-text-primary: oklch(0.208 0.042 265.755);   /* slate-900 */
+  --color-text-secondary: oklch(0.554 0.046 257.417); /* slate-500 */
+  --color-text-muted: oklch(0.446 0.043 257.281);     /* slate-600 */
+  --color-text-light: oklch(0.704 0.04 256.788);      /* slate-400 */
+
+  /* Borders */
+  --color-border-light: oklch(0.929 0.013 255.508);   /* slate-200 */
+  --color-border-dark: oklch(0.372 0.044 257.287);    /* slate-700 */
+}

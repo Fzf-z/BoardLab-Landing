@@ -1,0 +1,82 @@
+---
+import '../styles/global.css';
+import { getLang, t } from '../i18n/utils';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { title: titleProp, description: descriptionProp } = Astro.props;
+
+const lang = getLang(Astro.url);
+const tr = t(lang);
+
+const title = titleProp ?? tr.seo.title;
+const description = descriptionProp ?? tr.seo.description;
+
+const siteUrl = 'https://board-lab.pro';
+const canonicalUrl = new URL(Astro.url.pathname, siteUrl).href;
+const ogImage = `${siteUrl}/screenshots/main.png`;
+
+const hreflangEn = `${siteUrl}/en/`;
+const hreflangEs = `${siteUrl}/es/`;
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: 'BoardLab Pro',
+  applicationCategory: 'DeveloperApplication',
+  operatingSystem: 'Windows',
+  description: tr.seo.description,
+  url: siteUrl,
+  offers: [
+    { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+    { '@type': 'Offer', price: '15', priceCurrency: 'USD', billingIncrement: 'P1M' },
+  ],
+};
+---
+
+<!doctype html>
+<html lang={lang} class="scroll-smooth">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Primary meta -->
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/png" href="/icon.png" />
+
+    <!-- Canonical & hreflang -->
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="alternate" hreflang="en" href={hreflangEn} />
+    <link rel="alternate" hreflang="es" href={hreflangEs} />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="BoardLab Pro" />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  </head>
+  <body class="bg-white text-slate-900 antialiased">
+    <a
+      href="#main-content"
+      class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded focus:bg-white focus:px-4 focus:py-2 focus:text-slate-900 focus:shadow-lg focus:outline-none"
+    >
+      Skip to content
+    </a>
+    <slot />
+  </body>
+</html>
