@@ -1,6 +1,7 @@
 ---
 import type { Lang } from '../i18n/utils';
 import { t } from '../i18n/utils';
+import { DOWNLOAD_URL } from '../config';
 
 interface Props {
   lang: Lang;
@@ -8,7 +9,7 @@ interface Props {
 
 const { lang } = Astro.props;
 const tr = t(lang);
-const downloadUrl = 'https://pub-a5c39dc41b1845aab82e6839d91eff7d.r2.dev/BoardLab%20Pro%20Setup%203.0.0.exe';
+const downloadUrl = DOWNLOAD_URL;
 
 // Split the title to wrap the highlighted word with a gradient span
 const highlightWord = tr.hero.titleHighlight;
@@ -196,3 +197,4 @@ const titleParts = tr.hero.title.split(highlightWord);
     });
   });
 </script>
+

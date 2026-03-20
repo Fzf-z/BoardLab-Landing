@@ -1,0 +1,8 @@
+export const DOWNLOAD_URL =
+  'https://pub-a5c39dc41b1845aab82e6839d91eff7d.r2.dev/BoardLab%20Pro%20Setup%203.0.0.exe';
+
+export const CHECKOUT_MONTHLY_URL =
+  'https://boardlab.lemonsqueezy.com/checkout/buy/9bbe08c5-aae6-4cd3-96dd-fc2f9cae0a7e?embed=1';
+
+export const CHECKOUT_ANNUAL_URL =
+  'https://boardlab.lemonsqueezy.com/checkout/buy/28159c46-8787-400c-bd71-53e4a2cb959a?embed=1';

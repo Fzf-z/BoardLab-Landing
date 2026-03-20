@@ -1,6 +1,7 @@
 ---
 import type { Lang } from '../i18n/utils';
 import { t } from '../i18n/utils';
+import { DOWNLOAD_URL, CHECKOUT_MONTHLY_URL, CHECKOUT_ANNUAL_URL } from '../config';
 
 interface Props {
   lang: Lang;
@@ -9,9 +10,6 @@ interface Props {
 const { lang } = Astro.props;
 const tr = t(lang);
 const pricing = tr.pricing;
-
-const downloadUrl =
-  'https://pub-a5c39dc41b1845aab82e6839d91eff7d.r2.dev/BoardLab%20Pro%20Setup%203.0.0.exe';
 ---
 
 <section id="pricing" class="bg-white py-20 sm:py-28">
@@ -76,7 +74,7 @@ const downloadUrl =
 
         <!-- CTA -->
         <a
-          href={downloadUrl}
+          href={DOWNLOAD_URL}
           class="mt-8 block w-full rounded-xl border border-slate-300 py-3 text-center text-sm font-semibold text-slate-700 transition-all hover:border-slate-400 hover:text-slate-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
         >
           {pricing.free.cta}
@@ -127,9 +125,10 @@ const downloadUrl =
 
         <!-- CTA -->
         <a
-          href="#"
-          data-checkout-monthly=""
-          data-checkout-annual=""
+          id="pro-cta"
+          href={CHECKOUT_MONTHLY_URL}
+          data-checkout-monthly={CHECKOUT_MONTHLY_URL}
+          data-checkout-annual={CHECKOUT_ANNUAL_URL}
           class="mt-8 block w-full rounded-xl bg-gradient-to-r from-blue-600 to-teal-600 py-3 text-center text-sm font-semibold text-white transition-all hover:shadow-lg hover:shadow-blue-500/25 hover:brightness-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
         >
           {pricing.pro.cta}
@@ -146,6 +145,7 @@ const downloadUrl =
   const priceMonthly = document.getElementById('price-monthly');
   const priceAnnual = document.getElementById('price-annual');
   const annualNote = document.getElementById('annual-note');
+  const proCta = document.getElementById('pro-cta') as HTMLAnchorElement | null;
 
   function showMonthly() {
     monthlyBtn?.classList.add('bg-white', 'text-slate-900', 'shadow-sm');
@@ -155,6 +155,7 @@ const downloadUrl =
     priceMonthly?.classList.remove('hidden');
     priceAnnual?.classList.add('hidden');
     annualNote?.classList.add('hidden');
+    if (proCta) proCta.href = proCta.dataset.checkoutMonthly!;
   }
 
   function showAnnual() {
@@ -165,6 +166,7 @@ const downloadUrl =
     priceAnnual?.classList.remove('hidden');
     priceMonthly?.classList.add('hidden');
     annualNote?.classList.remove('hidden');
+    if (proCta) proCta.href = proCta.dataset.checkoutAnnual!;
   }
 
   monthlyBtn?.addEventListener('click', showMonthly);
