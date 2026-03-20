@@ -10,7 +10,8 @@ const { lang } = Astro.props;
 const tr = t(lang);
 const altLang = getAlternateLang(lang);
 const altHref = getLocalizedPath(altLang, '/');
-const downloadUrl = 'https://pub-a5c39dc41b1845aab82e6839d91eff7d.r2.dev/BoardLab%20Pro%20Setup%203.0.0.exe';
+import { DOWNLOAD_URL } from '../config';
+const downloadUrl = DOWNLOAD_URL;
 ---
 
 <nav
