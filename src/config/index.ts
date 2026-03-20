@@ -1,4 +1,4 @@
-export const DOWNLOAD_URL = 'https://board-lab.pro/BoardLab-Pro-Setup.exe';
+export const DOWNLOAD_URL = 'https://download.board-lab.pro/BoardLab-Pro-Setup.exe';
 
 export const CHECKOUT_MONTHLY_URL =
   'https://boardlab.lemonsqueezy.com/checkout/buy/9bbe08c5-aae6-4cd3-96dd-fc2f9cae0a7e?embed=1';
