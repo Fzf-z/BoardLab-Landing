@@ -3,8 +3,11 @@ import { defineConfig } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
 import sitemap from '@astrojs/sitemap';
 
+import cloudflare from '@astrojs/cloudflare';
+
 export default defineConfig({
   site: 'https://board-lab.pro',
+
   i18n: {
     defaultLocale: 'en',
     locales: ['en', 'es'],
@@ -12,8 +15,11 @@ export default defineConfig({
       prefixDefaultLocale: false,
     },
   },
+
   vite: {
     plugins: [tailwindcss()],
   },
+
   integrations: [sitemap()],
+  adapter: cloudflare(),
 });
